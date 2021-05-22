@@ -80,7 +80,7 @@ class ErrorDetailsStampTest extends TestCase
         $stamp = ErrorDetailsStamp::create($exception);
         $extractor = new ConstructorExtractor([
             new PhpDocExtractor(),
-            new ReflectionExtractor()
+            new ReflectionExtractor(),
         ]);
         $serializer = new Serializer(
             new SymfonySerializer([
