@@ -19,7 +19,6 @@ use Symfony\Component\Messenger\Stamp\ErrorDetailsStamp;
 use Symfony\Component\Messenger\Transport\Serialization\Normalizer\FlattenExceptionNormalizer;
 use Symfony\Component\Messenger\Transport\Serialization\Serializer;
 use Symfony\Component\PropertyInfo\Extractor\ConstructorExtractor;
-use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
@@ -79,7 +78,6 @@ class ErrorDetailsStampTest extends TestCase
         $exception = new StringErrorCodeException('exception message', 'some code');
         $stamp = ErrorDetailsStamp::create($exception);
         $extractor = new ConstructorExtractor([
-            new PhpDocExtractor(),
             new ReflectionExtractor(),
         ]);
         $serializer = new Serializer(
