@@ -86,10 +86,7 @@ class ErrorDetailsStampTest extends TestCase
             new SymfonySerializer([
                 new ArrayDenormalizer(),
                 new FlattenExceptionNormalizer(),
-                new ObjectNormalizer(
-                    null, null, null, $extractor,
-                    null, null, []
-                ),
+                new ObjectNormalizer(null, null, null, $extractor, null, null, []),
             ], [new JsonEncoder()])
         );
 
